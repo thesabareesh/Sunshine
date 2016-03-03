@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.fulltoast.sunshine.ForecastFragment.java">
+
+    <item android:id="@+id/refresh"
+        android:orderInCategory="1"
+        android:title="@string/action_refresh"/>
+
+
+</menu>
