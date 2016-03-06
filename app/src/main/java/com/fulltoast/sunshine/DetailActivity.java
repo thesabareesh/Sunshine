@@ -105,6 +105,7 @@ public class DetailActivity extends AppCompatActivity {
         public Intent createShareForecastIntent(){
             Intent shareIntent=new Intent(Intent.ACTION_SEND);
             shareIntent.setType("text/plain");
+            shareIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
             shareIntent.putExtra(Intent.EXTRA_TEXT,mForecastStr + FORECAST_SHARE_HASHTAG);
             return shareIntent;
         }
