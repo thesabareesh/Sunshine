@@ -66,7 +66,7 @@ public class TestUtilities extends AndroidTestCase {
         Students: You can uncomment this helper function once you have finished creating the
         LocationEntry part of the WeatherContract.
      */
-    static ContentValues createNorthPoleLocationValues() {
+   /* static ContentValues createNorthPoleLocationValues() {
         // Create a new map of values, where column names are the keys
         ContentValues testValues = new ContentValues();
         testValues.put(WeatherContract.LocationEntry.COLUMN_LOCATION_SETTING, TEST_LOCATION);
@@ -75,13 +75,13 @@ public class TestUtilities extends AndroidTestCase {
         testValues.put(WeatherContract.LocationEntry.COLUMN_COORD_LONG, -147.353);
 
         return testValues;
-    }
+    }*/
 
     /*
         Students: You can uncomment this function once you have finished creating the
         LocationEntry part of the WeatherContract as well as the WeatherDbHelper.
      */
-    static long insertNorthPoleLocationValues(Context context) {
+   /* static long insertNorthPoleLocationValues(Context context) {
         // insert our test records into the database
         WeatherDbHelper dbHelper = new WeatherDbHelper(context);
         SQLiteDatabase db = dbHelper.getWritableDatabase();
@@ -94,7 +94,7 @@ public class TestUtilities extends AndroidTestCase {
         assertTrue("Error: Failure to insert North Pole Location Values", locationRowId != -1);
 
         return locationRowId;
-    }
+    }*/
 
     /*
         Students: The functions we provide inside of TestProvider use this utility class to test

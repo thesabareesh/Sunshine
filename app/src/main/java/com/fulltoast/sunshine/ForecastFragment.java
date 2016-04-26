@@ -95,7 +95,7 @@ public class ForecastFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //Snackbar.make(view,mForecastAdapter.getItem(position).toString(),Snackbar.LENGTH_LONG).show();
                 Intent intent=new Intent(getActivity(),DetailActivity.class);
-                intent.putExtra(Intent.EXTRA_TEXT,mForecastAdapter.getItem(position).toString());
+                intent.putExtra(Intent.EXTRA_TEXT,mForecastAdapter.getItem(position));
                 startActivity(intent);
             }
         });
@@ -109,7 +109,7 @@ public class ForecastFragment extends Fragment {
     }
 
     private void updateWeather(){
-        FetchWeatherTask weatherTask = new FetchWeatherTask();
+        FetchWeatherTask weatherTask = new FetchWeatherTask(getActivity(),mForecastAdapter);
         SharedPreferences prefs= PreferenceManager.getDefaultSharedPreferences(getActivity());
         String location=prefs.getString(getString(R.string.pref_location_key), getString(R.string.pref_location_default));
         ConnectivityManager connection= (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -123,7 +123,8 @@ public class ForecastFragment extends Fragment {
 
     }
 
-    public class FetchWeatherTask extends AsyncTask<String, Void, String[]> {
+
+    public class FetchWeatherTasks extends AsyncTask<String, Void, String[]> {
 
         private final String LOG_TAG = FetchWeatherTask.class.getSimpleName();
 
@@ -340,5 +341,7 @@ public class ForecastFragment extends Fragment {
             }
         }
     }
+
+
 
 }

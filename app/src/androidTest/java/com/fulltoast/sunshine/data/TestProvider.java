@@ -12,7 +12,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- *//*
+ */
 
 package com.fulltoast.sunshine.data;
 
@@ -26,20 +26,20 @@ import android.test.AndroidTestCase;
 import com.fulltoast.sunshine.data.WeatherContract.LocationEntry;
 import com.fulltoast.sunshine.data.WeatherContract.WeatherEntry;
 
-*/
+
 /*
     Note: This is not a complete set of tests of the Sunshine ContentProvider, but it does test
     that at least the basic functionality has been implemented correctly.
 
     Students: Uncomment the tests in this class as you implement the functionality in your
     ContentProvider to make sure that you've implemented things reasonably correctly.
- *//*
+ */
 
-public class TestProvider extends AndroidTestCase {
+//public class TestProvider extends AndroidTestCase {
 
-    public static final String LOG_TAG = TestProvider.class.getSimpleName();
+ //   public static final String LOG_TAG = TestProvider.class.getSimpleName();
 
-    */
+
 /*
        This helper function deletes all records from both database tables using the ContentProvider.
        It also queries the ContentProvider to make sure that the database has been successfully
@@ -194,34 +194,34 @@ public class TestProvider extends AndroidTestCase {
         given in the ContentProvider is working correctly.
      *//*
 
-//    public void testBasicWeatherQuery() {
-//        // insert our test records into the database
-//        WeatherDbHelper dbHelper = new WeatherDbHelper(mContext);
-//        SQLiteDatabase db = dbHelper.getWritableDatabase();
-//
-//        ContentValues testValues = TestUtilities.createNorthPoleLocationValues();
-//        long locationRowId = TestUtilities.insertNorthPoleLocationValues(mContext);
-//
-//        // Fantastic.  Now that we have a location, add some weather!
-//        ContentValues weatherValues = TestUtilities.createWeatherValues(locationRowId);
-//
-//        long weatherRowId = db.insert(WeatherEntry.TABLE_NAME, null, weatherValues);
-//        assertTrue("Unable to Insert WeatherEntry into the Database", weatherRowId != -1);
-//
-//        db.close();
-//
-//        // Test the basic content provider query
-//        Cursor weatherCursor = mContext.getContentResolver().query(
-//                WeatherEntry.CONTENT_URI,
-//                null,
-//                null,
-//                null,
-//                null
-//        );
-//
-//        // Make sure we get the correct cursor out of the database
-//        TestUtilities.validateCursor("testBasicWeatherQuery", weatherCursor, weatherValues);
-//    }
+    public void testBasicWeatherQuery() {
+        // insert our test records into the database
+        WeatherDbHelper dbHelper = new WeatherDbHelper(mContext);
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+        ContentValues testValues = TestUtilities.createNorthPoleLocationValues();
+        long locationRowId = TestUtilities.insertNorthPoleLocationValues(mContext);
+
+        // Fantastic.  Now that we have a location, add some weather!
+        ContentValues weatherValues = TestUtilities.createWeatherValues(locationRowId);
+
+        long weatherRowId = db.insert(WeatherEntry.TABLE_NAME, null, weatherValues);
+        assertTrue("Unable to Insert WeatherEntry into the Database", weatherRowId != -1);
+
+        db.close();
+
+        // Test the basic content provider query
+        Cursor weatherCursor = mContext.getContentResolver().query(
+                WeatherEntry.CONTENT_URI,
+                null,
+                null,
+                null,
+                null
+        );
+
+        // Make sure we get the correct cursor out of the database
+        TestUtilities.validateCursor("testBasicWeatherQuery", weatherCursor, weatherValues);
+    }
 
     */
 /*
