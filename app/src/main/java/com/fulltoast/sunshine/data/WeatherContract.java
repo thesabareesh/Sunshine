@@ -15,17 +15,11 @@
  */
 package com.fulltoast.sunshine.data;
 
-import android.provider.BaseColumns;
-import android.text.format.Time;
-
-/**
- * Defines table and column names for the weather database.
- */
 import android.content.ContentResolver;
-import android.content.ContentUris;
-import android.net.Uri;
-import android.provider.BaseColumns;
-import android.text.format.Time;
+        import android.content.ContentUris;
+        import android.net.Uri;
+        import android.provider.BaseColumns;
+        import android.text.format.Time;
 
 /**
  * Defines table and column names for the weather database.
@@ -36,15 +30,15 @@ public class WeatherContract {
     // relationship between a domain name and its website.  A convenient string to use for the
     // content authority is the package name for the app, which is guaranteed to be unique on the
     // device.
-    public static final String CONTENT_AUTHORITY = "com.fulltoast.sunshine";
+    public static final String CONTENT_AUTHORITY = "com.example.android.sunshine.app";
 
     // Use CONTENT_AUTHORITY to create the base of all URI's which apps will use to contact
     // the content provider.
     public static final Uri BASE_CONTENT_URI = Uri.parse("content://" + CONTENT_AUTHORITY);
 
     // Possible paths (appended to base content URI for possible URI's)
-    // For instance, content://com.fulltoast.sunshine/weather/ is a valid path for
-    // looking at weather data. content://com.fulltoast.sunshine/givemeroot/ will fail,
+    // For instance, content://com.example.android.sunshine.app/weather/ is a valid path for
+    // looking at weather data. content://com.example.android.sunshine.app/givemeroot/ will fail,
     // as the ContentProvider hasn't been given any information on what to do with "givemeroot".
     // At least, let's hope not.  Don't be that dev, reader.  Don't be that dev.
     public static final String PATH_WEATHER = "weather";

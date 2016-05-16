@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.fulltoast.sunshine.ForecastFragment.java">
 
-    <item android:id="@+id/refresh"
+    <item android:id="@+id/action_refresh"
         android:orderInCategory="1"
         android:title="@string/action_refresh"/>
 

@@ -3,7 +3,6 @@ package com.fulltoast.sunshine;
 /**
  * Created by SABAREESH on 3/19/2016.
  */
-import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -29,6 +28,7 @@ import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Vector;
+
 
 public class FetchWeatherTask extends AsyncTask<String, Void, String[]> {
 
@@ -59,6 +59,24 @@ public class FetchWeatherTask extends AsyncTask<String, Void, String[]> {
      * Prepare the weather high/lows for presentation.
      */
     private String formatHighLows(double high, double low) {
+        // Data is fetched in Celsius by default.
+        // If user prefers to see in Fahrenheit, convert the values here.
+        // We do this rather than fetching in Fahrenheit so that the user can
+        // change this option without us having to re-fetch the data once
+        // we start storing the values in a database.
+        SharedPreferences sharedPrefs =
+                PreferenceManager.getDefaultSharedPreferences(mContext);
+        String unitType = sharedPrefs.getString(
+                mContext.getString(R.string.pref_units_key),
+                mContext.getString(R.string.pref_units_metric));
+
+        if (unitType.equals(mContext.getString(R.string.pref_units_imperial))) {
+            high = (high * 1.8) + 32;
+            low = (low * 1.8) + 32;
+        } else if (!unitType.equals(mContext.getString(R.string.pref_units_metric))) {
+            Log.d(LOG_TAG, "Unit type not found: " + unitType);
+        }
+
         // For presentation, assume the user doesn't care about tenths of a degree.
         long roundedHigh = Math.round(high);
         long roundedLow = Math.round(low);
@@ -303,7 +321,6 @@ public class FetchWeatherTask extends AsyncTask<String, Void, String[]> {
             final String DAYS_PARAM = "cnt";
             final String APPID_PARAM = "APPID";
             String api_key= mContext.getResources().getString(R.string.api_key);
-
             Uri builtUri = Uri.parse(FORECAST_BASE_URL).buildUpon()
                     .appendQueryParameter(QUERY_PARAM, params[0])
                     .appendQueryParameter(FORMAT_PARAM, format)
