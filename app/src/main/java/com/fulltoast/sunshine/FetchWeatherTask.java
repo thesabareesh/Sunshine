@@ -1,8 +1,11 @@
+/*
 package com.fulltoast.sunshine;
 
+*/
 /**
  * Created by SABAREESH on 3/19/2016.
- */
+ *//*
+
 import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.Context;
@@ -44,7 +47,8 @@ public class FetchWeatherTask extends AsyncTask<String, Void, Void> {
 
     private boolean DEBUG = true;
 
-    /**
+    */
+/**
      * Helper method to handle insertion of a new location in the weather database.
      *
      * @param locationSetting The location string used to request updates from the server.
@@ -52,7 +56,8 @@ public class FetchWeatherTask extends AsyncTask<String, Void, Void> {
      * @param lat the latitude of the city
      * @param lon the longitude of the city
      * @return the row ID of the added location.
-     */
+     *//*
+
     long addLocation(String locationSetting, String cityName, double lat, double lon) {
         long locationId;
 
@@ -94,15 +99,17 @@ public class FetchWeatherTask extends AsyncTask<String, Void, Void> {
         return locationId;
     }
 
-    /**
+    */
+/**
      * Take the String representing the complete forecast in JSON Format and
      * pull out the data we need to construct the Strings needed for the wireframes.
      *
      * Fortunately parsing is easy:  constructor takes the JSON string and converts it
      * into an Object hierarchy for us.
-     */
+     *//*
+
     private void getWeatherDataFromJson(String forecastJsonStr,
-                                            String locationSetting)
+                                        String locationSetting)
             throws JSONException {
 
         // Now we have a String representing the complete forecast in JSON Format.
@@ -278,7 +285,7 @@ public class FetchWeatherTask extends AsyncTask<String, Void, Void> {
                     .appendQueryParameter(FORMAT_PARAM, format)
                     .appendQueryParameter(UNITS_PARAM, units)
                     .appendQueryParameter(DAYS_PARAM, Integer.toString(numDays))
-                    .appendQueryParameter(APPID_PARAM,api_key)
+                    .appendQueryParameter(APPID_PARAM, api_key)
                     .build();
 
             URL url = new URL(builtUri.toString());
@@ -332,4 +339,4 @@ public class FetchWeatherTask extends AsyncTask<String, Void, Void> {
         }
         return null;
     }
-}
+}*/
